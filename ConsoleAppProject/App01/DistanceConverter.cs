@@ -1,4 +1,5 @@
-﻿namespace ConsoleAppProject.App01
+﻿using System;
+namespace ConsoleAppProject.App01
 {
     /// <summary>
     /// Please describe the main features of this App
@@ -13,11 +14,13 @@
         private double feet;
 
         /// <summary>
-        /// Runs the method of converting
+        /// Runs the method of converting the miles to feet
         /// </summary>
         public void Run()
-        { 
-        
+        {
+            InputMiles();
+            CalculateFeet();
+            OutputFeet();
         }
         /// <summary>
         /// Promt the user to enter the distance in miles 
@@ -25,7 +28,9 @@
         /// </summary>
         private void InputMiles()
         {
-
+            Console.Write("please enter a number of miles");
+            string value = Console.ReadLine();
+            miles = Convert.ToDouble(value);
         }
         /// <summary>
         /// Calculates the Inputted miles into feet
