@@ -10,11 +10,13 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         public const int FEET_IN_MILES = 5280;
+        public const int METRES_IN_MILES = 1609;
 
         private double miles;
 
         private double feet;
 
+        private double metres;
         /// <summary>
         /// Runs the method of converting the miles to feet
         /// </summary>
@@ -23,7 +25,13 @@ namespace ConsoleAppProject.App01
             OutputHeading();
             InputMiles();
             CalculateFeet();
+            CalulateMetres();
             OutputFeet();
+        }
+
+        private void CalulateMetres()
+        {
+            metres = miles * METRES_IN_MILES;
         }
 
         private void OutputHeading()
@@ -58,6 +66,7 @@ namespace ConsoleAppProject.App01
         private void OutputFeet()
         {
             Console.WriteLine(miles + " miles is " + feet + " feet");
+            Console.WriteLine(miles + " miles is " + metres + " metres");
 
         }
     }
