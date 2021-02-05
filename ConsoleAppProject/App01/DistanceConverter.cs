@@ -30,7 +30,7 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// The Process of converting Feet to Miles
+        /// The Process of converting Miles to Feet 
         /// </summary>
         public void ConvertMilesToFeet()
         {
@@ -73,9 +73,8 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// Shows the ehading of the window
+        /// Shows the heading of the window
         /// </summary>
-        /// <param name="title"></param>
         private void OutputHeading(string title)
         {
             Console.WriteLine("\n------------------------");
