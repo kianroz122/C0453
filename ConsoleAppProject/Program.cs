@@ -22,11 +22,7 @@ namespace ConsoleAppProject
             Console.Beep();
 
             DistanceConverter converter = new DistanceConverter();
-            converter.ConvertMilesToFeet();
-            converter.ConvertFeetToMiles();
-            converter.ConvertMilesToMetres();
-
-
+            converter.ConvertDistance();
         }
     }
 }
