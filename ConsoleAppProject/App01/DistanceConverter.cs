@@ -102,9 +102,8 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void OutputFeet()
         {
-            Console.WriteLine(miles + " miles is " + feet + " feet");
-            Console.WriteLine(miles + " miles is " + metres + " metres");
-
+            Console.WriteLine($"{miles:0.00} miles is  {feet:0.00} feet");
+            Console.WriteLine($"{miles:0.00} miles is  {metres:0.00} metres");
         }
     }
 }
