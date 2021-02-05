@@ -7,7 +7,7 @@ namespace ConsoleAppProject.App01
     /// it into another one specified by the user.
     /// </summary>
     /// <author>
-    /// Kian Rozblat Version 0.5
+    /// Kian Rozblat Version 0.7
     /// </author>
     public class DistanceConverter
     {
@@ -16,6 +16,7 @@ namespace ConsoleAppProject.App01
         public const double METRES_IN_MILES = 1609.34;
         public const double FEET_IN_METRES = 3.28084;
 
+        //attributes
         public const string FEET = "feet";
         public const string MILES = "miles";
         public const string METRES = "metres";
@@ -53,6 +54,11 @@ namespace ConsoleAppProject.App01
             OutputDistance();
         }
 
+        /// <summary>
+        /// Calculate the fromUnit and toUnit to give 
+        /// the correct converted distance that the 
+        /// user has inputted
+        /// </summary>
         private void CalculateDistance()
         {
             if (fromUnit == MILES && toUnit == FEET)
@@ -82,6 +88,11 @@ namespace ConsoleAppProject.App01
 
         }
 
+        /// <summary>
+        /// where the program will show a prompt 
+        /// that shows the user the options to choose
+        /// what units they will be converting
+        /// </summary>
         private string SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
@@ -91,6 +102,9 @@ namespace ConsoleAppProject.App01
             return unit;
         }
 
+        /// <summary>
+        /// runs the choice that the user has made in the select uni method
+        /// </summary>
         private static string ExecuteChoice(string choice)
         {
             if (choice.Equals("1"))
@@ -109,6 +123,9 @@ namespace ConsoleAppProject.App01
             return null;
         }
 
+        /// <summary>
+        /// the display the user sees to show the options of units to convert to
+        /// </summary>
         private static string DisplayChoices(string prompt)
         {
             Console.WriteLine();
