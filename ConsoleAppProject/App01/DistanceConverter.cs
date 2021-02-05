@@ -36,9 +36,30 @@ namespace ConsoleAppProject.App01
         public void ConvertFeetToMiles()
         {
             OutputHeading("Convert Feet to Miles");
-            InputFeet();
+            feet = InputDistance("Please enter the number of feet > ");
             CalculateMiles();
             OutputMiles();
+        }
+
+        public void ConvertMilesToFeet()
+        {
+            OutputHeading("Convert Miles to Feet");
+            miles = InputDistance("Please enter the number of miles > ");
+            CalculateFeet();
+            OutputFeet();
+        }
+
+        public void ConvertMilesToMeters()
+        {
+            OutputHeading("Convert Miles to Metres");
+            miles = InputDistance("Please enter the number of miles > ");
+            CalulateMetres();
+            OutputMetres();
+        }
+
+        private void OutputMetres()
+        {
+            Console.WriteLine($"{miles:0.00} miles is  {metres:0.00} metres");
         }
 
         private void OutputMiles()
@@ -54,11 +75,11 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// This is where the user will input the amount of feet to convert
         /// </summary>
-        private void InputFeet()
+        private double InputDistance(string prompt)
         {
-            Console.Write("please enter a number of feet ");
+            Console.Write(prompt);
             string value = Console.ReadLine();
-            feet = Convert.ToDouble(value);
+            return Convert.ToDouble(value);
         }
 
         private void CalulateMetres()
@@ -103,7 +124,7 @@ namespace ConsoleAppProject.App01
         private void OutputFeet()
         {
             Console.WriteLine($"{miles:0.00} miles is  {feet:0.00} feet");
-            Console.WriteLine($"{miles:0.00} miles is  {metres:0.00} metres");
+            
         }
     }
 }
