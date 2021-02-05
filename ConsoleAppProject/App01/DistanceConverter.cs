@@ -2,7 +2,7 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// App that will convert miles to feet, miles to metres, and feet to miles
     /// </summary>
     /// <author>
     /// Kian Rozblat Version 0.1
@@ -30,6 +30,9 @@ namespace ConsoleAppProject.App01
             OutputFeet();
         }
 
+        /// <summary>
+        /// The Process of converting Feet to Miles
+        /// </summary>
         public void ConvertFeetToMiles()
         {
             OutputHeading("Convert Feet to Miles");
@@ -48,6 +51,9 @@ namespace ConsoleAppProject.App01
             miles = feet / FEET_IN_MILES;
         }
 
+        /// <summary>
+        /// This is where the user will input the amount of feet to convert
+        /// </summary>
         private void InputFeet()
         {
             Console.Write("please enter a number of feet ");
@@ -60,6 +66,10 @@ namespace ConsoleAppProject.App01
             metres = miles * METRES_IN_MILES;
         }
 
+        /// <summary>
+        /// Shows the ehading of the window
+        /// </summary>
+        /// <param name="title"></param>
         private void OutputHeading(string title)
         {
             Console.WriteLine("\n------------------------");
@@ -78,6 +88,7 @@ namespace ConsoleAppProject.App01
             string value = Console.ReadLine();
             miles = Convert.ToDouble(value);
         }
+
         /// <summary>
         /// Calculates the Inputted miles into feet
         /// </summary>
