@@ -19,72 +19,55 @@ namespace ConsoleAppProject.App01
         private double metres;
 
         /// <summary>
-        /// Runs the method of converting the miles to feet
-        /// </summary>
-        public void Run()
-        {
-            OutputHeading("Distance Converter");
-            InputMiles();
-            CalculateFeet();
-            CalulateMetres();
-            OutputFeet();
-        }
-
-        /// <summary>
         /// The Process of converting Feet to Miles
         /// </summary>
         public void ConvertFeetToMiles()
         {
             OutputHeading("Convert Feet to Miles");
             feet = InputDistance("Please enter the number of feet > ");
-            CalculateMiles();
-            OutputMiles();
+            miles = feet / FEET_IN_MILES;
+            OutputDistance(feet, nameof(feet), miles, nameof(miles));
         }
 
         public void ConvertMilesToFeet()
         {
             OutputHeading("Convert Miles to Feet");
             miles = InputDistance("Please enter the number of miles > ");
-            CalculateFeet();
-            OutputFeet();
+            feet = miles * FEET_IN_MILES;
+            OutputDistance(miles, nameof(miles), feet, nameof(feet));
         }
 
         public void ConvertMilesToMeters()
         {
             OutputHeading("Convert Miles to Metres");
             miles = InputDistance("Please enter the number of miles > ");
-            CalulateMetres();
-            OutputMetres();
-        }
-
-        private void OutputMetres()
-        {
-            Console.WriteLine($"{miles:0.00} miles is  {metres:0.00} metres");
-        }
-
-        private void OutputMiles()
-        {
-            Console.WriteLine($"{feet:0.00} feet is  {miles:0.00} miles");
-        }
-
-        private void CalculateMiles()
-        {
-            miles = feet / FEET_IN_MILES;
+            metres = miles * METRES_IN_MILES;
+            OutputDistance(miles, nameof(miles), metres, nameof(metres));
         }
 
         /// <summary>
-        /// This is where the user will input the amount of feet to convert
+        /// outputs the converted distance
+        /// </summary>
+        /// <param name="fromDistance"></param>
+        /// <param name="fromUnit"></param>
+        /// <param name="toDistance"></param>
+        /// <param name="toUnit"></param>
+        private void OutputDistance(
+            double fromDistance, string fromUnit,
+            double toDistance, string toUnit)
+        {
+            Console.WriteLine($"{fromDistance:0.00}  {fromUnit} " +
+                $"is {toDistance:0.00} {toUnit}");
+        }
+
+        /// <summary>
+        /// This is where the user will input the distance to be converted
         /// </summary>
         private double InputDistance(string prompt)
         {
             Console.Write(prompt);
             string value = Console.ReadLine();
             return Convert.ToDouble(value);
-        }
-
-        private void CalulateMetres()
-        {
-            metres = miles * METRES_IN_MILES;
         }
 
         /// <summary>
@@ -97,34 +80,6 @@ namespace ConsoleAppProject.App01
             Console.WriteLine($"--{title}-");
             Console.WriteLine("-----BY Kian Rozblat----");
             Console.WriteLine("------------------------\n");
-        }
-
-        /// <summary>
-        /// Promt the user to enter the distance in miles 
-        /// Input the miles as a double number
-        /// </summary>
-        private void InputMiles()
-        {
-            Console.Write("please enter a number of miles ");
-            string value = Console.ReadLine();
-            miles = Convert.ToDouble(value);
-        }
-
-        /// <summary>
-        /// Calculates the Inputted miles into feet
-        /// </summary>
-        private void CalculateFeet()
-        {
-            feet = miles * FEET_IN_MILES;
-        }
-
-        /// <summary>
-        /// Outputs the calculated feet to the user 
-        /// </summary>
-        private void OutputFeet()
-        {
-            Console.WriteLine($"{miles:0.00} miles is  {feet:0.00} feet");
-            
         }
     }
 }
