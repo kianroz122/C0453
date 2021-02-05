@@ -29,6 +29,9 @@ namespace ConsoleAppProject.App01
             OutputDistance(feet, nameof(feet), miles, nameof(miles));
         }
 
+        /// <summary>
+        /// The Process of converting Feet to Miles
+        /// </summary>
         public void ConvertMilesToFeet()
         {
             OutputHeading("Convert Miles to Feet");
@@ -37,7 +40,10 @@ namespace ConsoleAppProject.App01
             OutputDistance(miles, nameof(miles), feet, nameof(feet));
         }
 
-        public void ConvertMilesToMeters()
+        /// <summary>
+        /// The Process of converting Miles to Metres
+        /// </summary>
+        public void ConvertMilesToMetres()
         {
             OutputHeading("Convert Miles to Metres");
             miles = InputDistance("Please enter the number of miles > ");
@@ -48,10 +54,6 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// outputs the converted distance
         /// </summary>
-        /// <param name="fromDistance"></param>
-        /// <param name="fromUnit"></param>
-        /// <param name="toDistance"></param>
-        /// <param name="toUnit"></param>
         private void OutputDistance(
             double fromDistance, string fromUnit,
             double toDistance, string toUnit)
