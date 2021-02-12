@@ -40,6 +40,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void ConvertDistance()
         {
+            
             OutputHeading();
 
             fromUnit = SelectUnit(" Please select the from distance unit > ");
@@ -128,6 +129,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private static string DisplayChoices(string prompt)
         {
+           
             Console.WriteLine();
             Console.WriteLine($" 1. {FEET}");
             Console.WriteLine($" 2. {METRES}");
@@ -154,6 +156,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private double InputDistance(string prompt)
         {
+           
             Console.Write(prompt);
             string value = Console.ReadLine();
             return Convert.ToDouble(value);
@@ -164,6 +167,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void OutputHeading()
         {
+            
             Console.WriteLine("\n------------------------");
             Console.WriteLine($"----Distance Converter---");
             Console.WriteLine("-----BY Kian Rozblat----");
