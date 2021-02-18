@@ -21,7 +21,7 @@ namespace ConsoleAppProject
             Console.WriteLine("Select an app to use ");
             Console.WriteLine("1 ~ App01 Distance Converter");
             Console.WriteLine("2 ~ App02 BMI Calculator");
-            Console.Beep();
+            
             string choice = Console.ReadLine();
 
             if (choice == "1")

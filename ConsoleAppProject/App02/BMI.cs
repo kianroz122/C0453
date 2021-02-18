@@ -161,7 +161,7 @@ namespace ConsoleAppProject.App02
         /// outputs the converted distance
         private void OutputBmi()
         {
-            Console.WriteLine($"Your BMI is {index}");
+            Console.WriteLine($"Your BMI is {index:0.00}");
         }
 
         //calculates the WHO to show the body type of the user e.g overweight healthy
