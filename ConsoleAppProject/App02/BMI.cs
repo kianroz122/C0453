@@ -150,13 +150,13 @@ namespace ConsoleAppProject.App02
         private void CalculateImperial()
         {
             
-            index = ((kilograms * 703) / (centimetres * centimetres));
+            index = (double)pounds * 703 / (inches * inches);
         }
 
         //calculates the BMI from Metric units that was input
         private void CalculateMetric()
         {
-            index = (pounds / (inches * inches));
+            index = (kilograms / (metres * metres));
         }
 
         /// outputs the converted distance
