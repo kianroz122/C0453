@@ -10,7 +10,6 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BmiCalculator
     {
-
         //Constants
         public const double Underweight = 18.5;
         public const double Healthy = 24.9;
@@ -65,8 +64,8 @@ namespace ConsoleAppProject.App02
 
 
             OutputBmi();
-            //OutputWho();
-            //OutputWarning();
+            OutputWho();
+            OutputWarning();
         }
 
         private double InputImperialWeight()
