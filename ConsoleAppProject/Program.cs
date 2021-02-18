@@ -31,8 +31,8 @@ namespace ConsoleAppProject
             }
             else if (choice == "2")
             {
-                BMICalculator calculator = new BMICalculator();
-                calculator.CalculateBMI();
+                App02.BMI calculator = new App02.BMI();
+                calculator.CalculateBmi();
             }
             else Console.WriteLine("Invalid Try Again");
         }

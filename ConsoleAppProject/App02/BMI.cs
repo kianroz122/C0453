@@ -8,7 +8,7 @@ namespace ConsoleAppProject.App02
     /// <author>
     /// Kian Rozblat version 0.1
     /// </author>
-    public class BmiCalculator
+    public class BMI
     {
         //Constants
         public const double Underweight = 18.5;
@@ -38,9 +38,7 @@ namespace ConsoleAppProject.App02
         public double bmi;
 
 
-        /// <summary>
         /// The Process of Calculating BMI
-        /// </summary>
         public void CalculateBmi()
         {
 
@@ -104,12 +102,12 @@ namespace ConsoleAppProject.App02
         {
             if (choice.Equals("1"))
             {
-                return METRIC;
+                return IMPERIAL;
             }
 
             else if (choice.Equals("2"))
             {
-                return IMPERIAL;
+                return METRIC;
             }
             Console.WriteLine("Invalid");
             return null;
@@ -118,7 +116,7 @@ namespace ConsoleAppProject.App02
         //displays the choices of the units the user can choose between
         private string DisplayChoices()
         {
-            Console.WriteLine();
+            Console.WriteLine("Choose your Units\n");
             Console.WriteLine(" 1. Imperial");
             Console.WriteLine(" 2. Metric");
             Console.WriteLine();
@@ -148,11 +146,7 @@ namespace ConsoleAppProject.App02
         }
 
 
-
-
-        /// <summary>
         /// Calculates the BMI from Imperial units that was input
-        /// </summary>
         private void CalculateImperial()
         {
             index = (pounds / (inches * inches));
@@ -164,9 +158,7 @@ namespace ConsoleAppProject.App02
             index = ((kilograms * 703) / (centimetres * centimetres));
         }
 
-        /// <summary>
         /// outputs the converted distance
-        /// </summary>
         private void OutputBmi()
         {
             Console.WriteLine($"Your BMI is {index}");
@@ -175,27 +167,27 @@ namespace ConsoleAppProject.App02
         //calculates the WHO to show the body type of the user e.g overweight healthy
         private void CalculateWho()
         {
-         if(index == 18.5)
+         if(index < 18.5)
             {
                 who = "underweight";
             }
-         else if (index == 24.9)
+         else if (index >= 18.5 && index <= 24.9)
             {
                 who = "healthy";
             }
-            else if (index == 29.9)
+            else if (index >= 25.0 && index <= 29.9)
             {
                 who = "overweight";
             }
-            else if (index == 34.9)
+            else if (index >= 30.0 && index <= 34.9)
             {
                 who = "obese level 1";
             }
-            else if (index == 39.9)
+            else if (index >=35.0 && index <= 39.9)
             {
                 who = "obese level 2";
             }
-            else if (index == 40.0)
+            else if (index >= 40.0)
             {
                 who = "obese level 3";
             }
