@@ -39,7 +39,7 @@ namespace ConsoleAppProject.App02
 
 
         /// <summary>
-        /// The Process of converting Miles to Feet 
+        /// The Process of Calculating BMI
         /// </summary>
         public void CalculateBmi()
         {
@@ -61,13 +61,13 @@ namespace ConsoleAppProject.App02
                 CalculateImperial();
             }
 
-
-
             OutputBmi();
+            CalculateWho();
             OutputWho();
             OutputWarning();
         }
 
+        //Input the weight in imperial units
         private double InputImperialWeight()
         {
             Console.Write("Enter Weight in lbs > ");
@@ -75,6 +75,7 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(pounds);
         }
 
+        //Input the height in imperial units
         private double InputImperialHeight()
         {
             Console.Write("Enter Height in Inches > ");
@@ -82,6 +83,7 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(inches);
         }
 
+        //Input the weight in metric units
         private double InputMetricWeight()
         {
             Console.Write("Enter Weight in Kg > ");
@@ -89,6 +91,7 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(kilograms);
         }
 
+        //Input the height in metric units
         private double InputMetricHeight()
         {
             Console.Write("Enter Height in Centimeters > ");
@@ -96,6 +99,7 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(centimeters);
         }
 
+        //Executes the choice of imperial or metric that the user makes
         private string ExecuteChoice(string choice)
         {
             if (choice.Equals("1"))
@@ -111,7 +115,7 @@ namespace ConsoleAppProject.App02
             return null;
         }
 
-
+        //displays the choices of the units the user can choose between
         private string DisplayChoices()
         {
             Console.WriteLine();
@@ -123,6 +127,7 @@ namespace ConsoleAppProject.App02
             return choice;
         }
 
+        //process of selecting the units
         private string SelectUnit()
         {
             Console.WriteLine();
@@ -133,7 +138,7 @@ namespace ConsoleAppProject.App02
             return unit;
         }
 
-
+        //outputs the heading of the app
         private void Heading()
         {
             Console.WriteLine("\n------------------------");
@@ -146,37 +151,18 @@ namespace ConsoleAppProject.App02
 
 
         /// <summary>
-        /// Calculate the fromUnit and toUnit to give 
-        /// the correct converted distance that the 
-        /// user has inputted
+        /// Calculates the BMI from Imperial units that was input
         /// </summary>
         private void CalculateImperial()
         {
             index = (pounds / (inches * inches));
         }
 
+        //calculates the BMI from Metric units that was input
         private void CalculateMetric()
         {
             index = ((kilograms * 703) / (centimetres * centimetres));
         }
-
-
-        /// <summary>
-        /// the display the user sees to show the options of units to convert to
-        /// </summary>
-        private static string DisplayChoices(string prompt)
-        {
-
-            Console.WriteLine();
-            Console.WriteLine(" 1. Imperial");
-            Console.WriteLine(" 2. Metric");
-            Console.WriteLine();
-
-            Console.Write(prompt);
-            string choice = Console.ReadLine();
-            return choice;
-        }
-
 
         /// <summary>
         /// outputs the converted distance
@@ -186,6 +172,7 @@ namespace ConsoleAppProject.App02
             Console.WriteLine($"Your BMI is {index}");
         }
 
+        //calculates the WHO to show the body type of the user e.g overweight healthy
         private void CalculateWho()
         {
          if(index == 18.5)
@@ -214,11 +201,13 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        //Outputs the Who of the user
         private void OutputWho()
         {
             Console.WriteLine("With your BMI you are classed as Being " + who);
         }
 
+        //Outputs Health warnings to the user
         private void OutputWarning()
         {
             Console.WriteLine("\n");
