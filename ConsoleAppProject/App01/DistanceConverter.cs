@@ -33,7 +33,15 @@ namespace ConsoleAppProject.App01
             toUnit = FEET;
         }
 
-     
+        public DistanceUnits DistanceUnits
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+
 
         /// <summary>
         /// The Process of converting Miles to Feet 

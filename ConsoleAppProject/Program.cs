@@ -18,11 +18,25 @@ namespace ConsoleAppProject
             Console.ForegroundColor = ConsoleColor.Red;
             
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
-            Console.WriteLine();
+            Console.WriteLine("Select an app to use ");
+            Console.WriteLine("1 ~ App01 Distance Converter");
+            Console.WriteLine("2 ~ App02 BMI Calculator");
             Console.Beep();
+            string choice = Console.ReadLine();
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.ConvertDistance();
+            if (choice == "1")
+            {
+                DistanceConverter converter = new DistanceConverter();
+                converter.ConvertDistance();
+            }
+            else if (choice == "2")
+            {
+                BmiCalculator calculator = new BmiCalculator();
+                calculator.CalculateBMI();
+            }
+            else Console.WriteLine("Invalid Try Again");
+
+
         }
     }
 }
