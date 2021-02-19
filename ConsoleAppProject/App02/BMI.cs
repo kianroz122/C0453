@@ -48,14 +48,14 @@ namespace ConsoleAppProject.App02
             string unit = null;
             if (unit == "metric")
             {
-                InputMetricHeight();
-                InputMetricWeight();
+                centimetres = InputMetricHeight();
+                kilograms = InputMetricWeight();
                 CalculateMetric();
             }
             else
             {
-                InputImperialHeight();
-                InputImperialWeight();
+                inches = InputImperialHeight();
+                pounds = InputImperialWeight();
                 CalculateImperial();
             }
 
@@ -69,32 +69,32 @@ namespace ConsoleAppProject.App02
         private double InputImperialWeight()
         {
             Console.Write("Enter Weight in lbs > ");
-            string pounds = Console.ReadLine();
-            return Convert.ToDouble(pounds);
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
         //Input the height in imperial units
         private double InputImperialHeight()
         {
             Console.Write("Enter Height in Inches > ");
-            string inches = Console.ReadLine();
-            return Convert.ToDouble(inches);
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
         //Input the weight in metric units
         private double InputMetricWeight()
         {
             Console.Write("Enter Weight in Kg > ");
-            string kilograms = Console.ReadLine();
-            return Convert.ToDouble(kilograms);
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
         //Input the height in metric units
         private double InputMetricHeight()
         {
             Console.Write("Enter Height in Centimeters > ");
-            string centimeters = Console.ReadLine();
-            return Convert.ToDouble(centimeters);
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
         //Executes the choice of imperial or metric that the user makes
