@@ -149,7 +149,7 @@ namespace ConsoleAppProject.App02
         /// Calculates the BMI from Imperial units that was input
         private void CalculateImperial()
         {
-            
+
             index = (double)pounds * 703 / (inches * inches);
         }
 
@@ -168,11 +168,11 @@ namespace ConsoleAppProject.App02
         //calculates the WHO to show the body type of the user e.g overweight healthy
         private void CalculateWho()
         {
-         if(index < 18.5)
+            if (index < 18.5)
             {
                 who = "underweight";
             }
-         else if (index >= 18.5 && index <= 24.9)
+            else if (index >= 18.5 && index <= 24.9)
             {
                 who = "healthy";
             }
@@ -184,7 +184,7 @@ namespace ConsoleAppProject.App02
             {
                 who = "obese level 1";
             }
-            else if (index >=35.0 && index <= 39.9)
+            else if (index >= 35.0 && index <= 39.9)
             {
                 who = "obese level 2";
             }
@@ -203,13 +203,11 @@ namespace ConsoleAppProject.App02
         //Outputs Health warnings to the user
         private void OutputWarning()
         {
-            Console.WriteLine("\n");
+
             Console.WriteLine(" If you are Black, Asian or other minority ethnic groups, you have a higher risk");
-            Console.WriteLine("\n");
             Console.WriteLine("\n Adults 23.0 or more are at increased risk");
-            Console.WriteLine("\n");
             Console.WriteLine("\n Adults 27.5 or more are at high risk");
-            Console.WriteLine("\n");
+
         }
-    }   
+    }
 }
