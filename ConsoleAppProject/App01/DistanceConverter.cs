@@ -88,11 +88,11 @@ namespace ConsoleAppProject.App01
             }
             else if (fromUnit == FEET && toUnit == METRES)
             {
-                toDistance = fromDistance * FEET_IN_METRES;
+                toDistance = fromDistance / FEET_IN_METRES;
             }
             else if (fromUnit == METRES && toUnit == FEET)
             {
-                toDistance = fromDistance / FEET_IN_METRES;
+                toDistance = fromDistance * FEET_IN_METRES;
             }
 
         }
@@ -128,7 +128,10 @@ namespace ConsoleAppProject.App01
             {
                 return MILES;
             }
-
+            else
+            {
+                Console.WriteLine("Error Does not exist");
+            }
             return null;
         }
 
