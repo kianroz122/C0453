@@ -37,6 +37,14 @@ namespace ConsoleAppProject.App02
         public double inches;
         public double bmi;
 
+        public Units Units
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
 
         /// The Process of Calculating BMI
         public void CalculateBmi()
