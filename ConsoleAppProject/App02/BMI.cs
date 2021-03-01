@@ -27,6 +27,7 @@ namespace ConsoleAppProject.App02
         //attributes
         public double index;
         public string who;
+        public string unit;
 
         public double kilograms;
         public double metres;
@@ -53,7 +54,7 @@ namespace ConsoleAppProject.App02
             Heading();
             SelectUnit();
 
-            string unit = null;
+            
             if (unit == "metric")
             {
                 centimetres = InputMetricHeight();
@@ -139,7 +140,7 @@ namespace ConsoleAppProject.App02
             Console.WriteLine();
             string choice = DisplayChoices();
 
-            string unit = ExecuteChoice(choice);
+            unit = ExecuteChoice(choice);
             Console.WriteLine($"\n You have chosen {unit}");
             return unit;
         }
@@ -164,7 +165,8 @@ namespace ConsoleAppProject.App02
         //calculates the BMI from Metric units that was input
         private void CalculateMetric()
         {
-            index = (kilograms / (metres * metres));
+            metres = centimetres / 100;
+            index = (kilograms / (metres* metres));
         }
 
         /// outputs the converted distance
