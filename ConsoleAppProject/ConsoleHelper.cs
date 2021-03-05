@@ -6,6 +6,9 @@ namespace ConsoleAppProject
 {
     public static class ConsoleHelper
     {
+        /// <summary>
+        /// outputs the heading for all apps 
+        /// </summary>
         public static void OutputHeading(string title)
         {
             Console.WriteLine("\n------------------------");
@@ -14,6 +17,9 @@ namespace ConsoleAppProject
             Console.WriteLine("------------------------\n");
         }
 
+        /// <summary>
+        /// Where the user will enter their choice from the choices displayed
+        /// </summary>
         public static int SelectChoice(string[] choices)
         {
             //Display all the choices
@@ -40,7 +46,8 @@ namespace ConsoleAppProject
         }
 
         /// <summary>
-        /// 
+        /// allows the user to enter a number and will give the user multiple
+        /// opportunities to correct if a mistake is made
         /// </summary>
         public static double InputNumber(string prompt)
         {
@@ -68,7 +75,8 @@ namespace ConsoleAppProject
         }
 
         /// <summary>
-        /// 
+        /// make sure the choice is between the amount given to further make sure the user
+        /// makes the right input
         /// </summary>
         public static double InputNumber(string prompt, double min, double max)
         {
