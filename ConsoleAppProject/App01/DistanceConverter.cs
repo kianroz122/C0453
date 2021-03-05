@@ -49,14 +49,14 @@ namespace ConsoleAppProject.App01
         public void ConvertDistance()
         {
             
-            OutputHeading();
+            ConsoleHelper.OutputHeading("Distance Converter");
 
             FromUnit = SelectUnit(" Please select the from distance unit > ");
             ToUnit = SelectUnit(" Please select the to distance unit > ");
 
             Console.WriteLine($" Convert {FromUnit} to {ToUnit}");
 
-            FromDistance = InputDistance($" Please enter the number of {FromUnit} > ");
+            FromDistance = ConsoleHelper.InputNumber($" Please enter the number of {FromUnit} > ");
 
             CalculateDistance();
             
@@ -104,54 +104,21 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private string SelectUnit(string prompt)
         {
-            string choice = DisplayChoices(prompt);
-            
-            string unit = ExecuteChoice(choice);
-            Console.WriteLine($"\n You have chosen {unit}");
+            string[] choices =
+            {
+             FEET,
+             METRES,
+             MILES
+            };
+
+            Console.WriteLine(prompt);
+            Console.WriteLine();
+
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
+
+            string unit = choices[choiceNo - 1];
             return unit;
         }
-
-        /// <summary>
-        /// runs the choice that the user has made in the select uni method
-        /// </summary>
-        private static string ExecuteChoice(string choice)
-        {
-            if (choice.Equals("1"))
-            {
-                return FEET;
-            }
-            else if (choice.Equals("2"))
-            {
-                return METRES;
-            }
-            else if (choice.Equals("3"))
-            {
-                return MILES;
-            }
-            else
-            {
-                Console.WriteLine("Error Does not exist");
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// the display the user sees to show the options of units to convert to
-        /// </summary>
-        private static string DisplayChoices(string prompt)
-        {
-           
-            Console.WriteLine();
-            Console.WriteLine($" 1. {FEET}");
-            Console.WriteLine($" 2. {METRES}");
-            Console.WriteLine($" 3. {MILES}");
-            Console.WriteLine();
-
-            Console.Write(prompt);
-            string choice = Console.ReadLine();
-            return choice;
-        }
-
 
         /// <summary>
         /// outputs the converted distance
@@ -162,27 +129,5 @@ namespace ConsoleAppProject.App01
                 $" is {ToDistance:0.00} {ToUnit}\n");
         }
 
-        /// <summary>
-        /// This is where the user will input the distance to be converted
-        /// </summary>
-        private double InputDistance(string prompt)
-        {
-           
-            Console.Write(prompt);
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
-        }
-
-        /// <summary>
-        /// Shows the heading of the window
-        /// </summary>
-        private void OutputHeading()
-        {
-            
-            Console.WriteLine("\n------------------------");
-            Console.WriteLine($"----Distance Converter---");
-            Console.WriteLine("-----BY Kian Rozblat----");
-            Console.WriteLine("------------------------\n");
-        }
     }
 }

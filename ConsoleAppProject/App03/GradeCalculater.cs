@@ -6,14 +6,14 @@ namespace ConsoleAppProject.App03
 {
     public class StudentGrades
     {
-        public string[] Students
-        public int[] Marks
-        public int[] GradeProfile
+        public string[] Students;
+        public int[] Marks;
+        public int[] GradeProfile;
 
 
-        public double Mean
-        public int Minimum
-        public int Maximum
+        public double Mean;
+        public int Minimum;
+        public int Maximum;
         
         /// <summary>
         /// 
@@ -24,13 +24,13 @@ namespace ConsoleAppProject.App03
             {
            
                 "aaliyah","jimmy","tom",
-                "ricardo","jeffhardy","trevor",
+                "ricardo","jeff","trevor",
                 "juan","hank","peter","rashid"
 
             };
 
-            GradeProfile = new int[(int)StudentGrades.A + 1];
-            Marks = mew int[Students.Length];
+            GradeProfile = new int[(int)Grades.A + 1];
+            Marks = new int[Students.Length];
         }
         
         /// <summary>
@@ -52,9 +52,12 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// 
         /// </summary>
-        public StudentGrades ConvertToGrade(int mark)
+        public Grades ConvertToGrade(int mark)
         {
-            throw new NotImplementedException();
+            if (mark >= 0 && mark < 40)
+                return Grades.F;
+            else
+            return Grades.X;
         }
 
         /// <summary>

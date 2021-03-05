@@ -13,33 +13,25 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
-        public static App02.BMI BMI
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private static DistanceConverter converter = new DistanceConverter();
+        
+        private static App02.BMI calculator = new App02.BMI();
 
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            
-            Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
-            Console.WriteLine("Select an app to use ");
-            Console.WriteLine("1 ~ App01 Distance Converter");
-            Console.WriteLine("2 ~ App02 BMI Calculator");
-            
-            string choice = Console.ReadLine();
 
-            if (choice == "1")
+            ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020-2021!");
+
+            string[] choices = { "Distance Converter", "BMI Calculator" };
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
+
+            if (choiceNo == 1)
             {
-                DistanceConverter converter = new DistanceConverter();
                 converter.ConvertDistance();
             }
-            else if (choice == "2")
+            else if (choiceNo == 2)
             {
-                App02.BMI calculator = new App02.BMI();
                 calculator.CalculateBmi();
             }
             else Console.WriteLine("Invalid Try Again");

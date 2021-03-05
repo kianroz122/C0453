@@ -51,7 +51,7 @@ namespace ConsoleAppProject.App02
         public void CalculateBmi()
         {
 
-            Heading();
+            ConsoleHelper.OutputHeading("BMI Calculator");
             SelectUnit();
 
             
@@ -144,16 +144,6 @@ namespace ConsoleAppProject.App02
             Console.WriteLine($"\n You have chosen {unit}");
             return unit;
         }
-
-        //outputs the heading of the app
-        private void Heading()
-        {
-            Console.WriteLine("\n------------------------");
-            Console.WriteLine($"----BMI Calculator---");
-            Console.WriteLine("-----BY Kian Rozblat----");
-            Console.WriteLine("------------------------\n");
-        }
-
 
         /// Calculates the BMI from Imperial units that was input
         private void CalculateImperial()
