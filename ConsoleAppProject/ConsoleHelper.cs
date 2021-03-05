@@ -20,7 +20,7 @@ namespace ConsoleAppProject
             DisplayChoices(choices);
 
             //Get the user's choice
-            int choiceNo = (int)InputNumber("\n Please enter your choice > ");
+            int choiceNo = (int)InputNumber("\n Please enter your choice > ",1, choices.Length);
             return choiceNo;
         }
 
@@ -44,10 +44,52 @@ namespace ConsoleAppProject
         /// </summary>
         public static double InputNumber(string prompt)
         {
-            Console.Write(prompt);
-            string value = Console.ReadLine();
-            double number = Convert.ToDouble(value);
+            double number = 0;
+            bool Isvalid= false;
+
+            do
+            {
+                Console.Write(prompt);
+                string value = Console.ReadLine();
+
+                try
+                {
+                    number = Convert.ToDouble(value);
+                }
+                catch (Exception)
+                {
+                    Isvalid = false;
+                    Console.WriteLine("Invalid Number");
+                }
+
+            } while (!Isvalid);
+            
             return number;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static double InputNumber(string prompt, double min, double max)
+        {
+            bool isValid = false;
+            double number = 0;
+
+            do
+            {
+                number = InputNumber(prompt);
+
+                if (number < min || number > max)
+                {
+                    isValid = false;
+                    Console.WriteLine($" Number must be between {min} and {max} ");
+                }
+                else isValid = true;
+            } while (!isValid);
+
+            return number;
+        }
+
+
     }
 }
