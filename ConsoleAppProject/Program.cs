@@ -1,4 +1,6 @@
 ﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
 using System;
 
 namespace ConsoleAppProject
@@ -15,7 +17,9 @@ namespace ConsoleAppProject
     {
         private static DistanceConverter converter = new DistanceConverter();
         
-        private static App02.BMI calculator = new App02.BMI();
+        private static BMI calculator = new BMI();
+
+        private static StudentGrades calc = new StudentGrades();
 
         public static void Main(string[] args)
         {
