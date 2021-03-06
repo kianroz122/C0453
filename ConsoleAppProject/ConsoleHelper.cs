@@ -62,6 +62,7 @@ namespace ConsoleAppProject
                 try
                 {
                     number = Convert.ToDouble(value);
+                    Isvalid = true;
                 }
                 catch (Exception)
                 {
