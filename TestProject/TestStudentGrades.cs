@@ -6,10 +6,10 @@ namespace TestProject
     [TestClass]
     public class TestStudentGrades
     {
-        private readonly StudentGrades converter = new StudentGrades();
+        private StudentGrades converter;
 
-        private readonly int[] testMarks;
-        private readonly int[] StatsMarks;
+        private int[] testMarks;
+        private int[] statsMarks;
 
 
         public TestStudentGrades()
@@ -19,7 +19,7 @@ namespace TestProject
                 10,20,30,40,50,60,70,80,90,100
             };
 
-            StatsMarks = new int[]
+            statsMarks = new int[]
             {
                 10,20,30,40,50,60,70,80,90,100
              };
@@ -30,6 +30,7 @@ namespace TestProject
         public void TestConvert0ToGradeF()
         {
             //arrange
+            converter =  new StudentGrades();
             Grades expectedGrade = Grades.F;
 
             //act
@@ -43,6 +44,7 @@ namespace TestProject
         public void TestConvert39ToGradef()
         {
             //arrange
+            converter = new StudentGrades();
             Grades expectedGrade = Grades.F;
 
             //act
@@ -55,6 +57,7 @@ namespace TestProject
         [TestMethod]
         public void TestCalculationMean()
         {
+            converter = new StudentGrades();
             converter.Marks = testMarks;
             double expectedMean = 55.0;
             converter.CalculateStats();
@@ -63,15 +66,16 @@ namespace TestProject
         }
 
         [TestMethod]
-        public static void TestCalculateMin()
+        public void TestCalculateMin()
         {
+            converter = new StudentGrades();
 
-            StudentGrades.Marks = StatsMarks;
+            converter.Marks = statsMarks;
             int expectedMin = 10;
 
-            StudentGrades.CalculateStats();
+            converter.CalculateStats();
 
-            Assert.AreEqual(expectedMin, StudentGrades.Minimum);
+            Assert.AreEqual(expectedMin, converter.Minimum);
         }
     }
 }

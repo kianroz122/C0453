@@ -11,15 +11,17 @@ namespace ConsoleAppProject.App02
     public class BMI
     {
         //Constants
-        public const double Underweight = 18.5;
-        public const double Healthy = 24.9;
-        public const double Overweight = 29.9;
-        public const double Obese1 = 34.9;
-        public const double Obese2 = 39.9;
-        public const double Obese3 = 40.0;
+        public const double Underweight = 18;
+        public const double Healthy = 25;
+        public const double Overweight = 29;
+        public const double Obese1 = 34;
+        public const double Obese2 = 39;
+        public const double Obese3 = 40;
 
         public const int InchesInFeet = 12;
         public const int PoundsInStone = 14;
+        public const int OneHundred = 100;
+        public const int SevenZeroThree = 703;
 
         public const string METRIC = "metric";
         public const string IMPERIAL = "imperial";
@@ -46,14 +48,14 @@ namespace ConsoleAppProject.App02
             }
         }
 
-
-        /// The Process of Calculating BMI
+        /// <summary>
+        /// Input the weight in imperial units
+        /// </summary>
         public void CalculateBmi()
         {
 
             ConsoleHelper.OutputHeading("BMI Calculator");
             SelectUnit();
-
             
             if (unit == "metric")
             {
@@ -67,14 +69,15 @@ namespace ConsoleAppProject.App02
                 pounds = InputImperialWeight();
                 CalculateImperial();
             }
-
             OutputBmi();
             CalculateWho();
             OutputWho();
             OutputWarning();
         }
 
-        //Input the weight in imperial units
+        /// <summary>
+        /// Input the weight in imperial units
+        /// </summary>
         private double InputImperialWeight()
         {
             Console.Write("Enter Weight in lbs > ");
@@ -82,7 +85,9 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
-        //Input the height in imperial units
+        /// <summary>
+        /// Input the height in imperial units
+        /// </summary>
         private double InputImperialHeight()
         {
             Console.Write("Enter Height in Inches > ");
@@ -90,7 +95,9 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
-        //Input the weight in metric units
+        /// <summary>
+        /// Input the weight in metric units
+        /// </summary>
         private double InputMetricWeight()
         {
             Console.Write("Enter Weight in Kg > ");
@@ -98,7 +105,9 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
-        //Input the height in metric units
+        /// <summary>
+        /// Input the height in metric units
+        /// </summary>
         private double InputMetricHeight()
         {
             Console.Write("Enter Height in Centimeters > ");
@@ -106,7 +115,9 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
-        //Executes the choice of imperial or metric that the user makes
+        /// <summary>
+        /// Executes the choice of imperial or metric that the user makes
+        /// </summary>
         private string ExecuteChoice(string choice)
         {
             if (choice.Equals("1"))
@@ -122,9 +133,17 @@ namespace ConsoleAppProject.App02
             return null;
         }
 
-        //displays the choices of the units the user can choose between
+        /// <summary>
+        /// displays the choices of the units the user can choose between
+        /// </summary>
         private string DisplayChoices()
         {
+            string[] choices =
+            {
+             IMPERIAL,
+             METRIC,
+
+            };
             Console.WriteLine("Choose your Units\n");
             Console.WriteLine(" 1. Imperial");
             Console.WriteLine(" 2. Metric");
@@ -134,7 +153,9 @@ namespace ConsoleAppProject.App02
             return choice;
         }
 
-        //process of selecting the units
+        /// <summary>
+        /// process of selecting the units
+        /// </summary>
         private string SelectUnit()
         {
             Console.WriteLine();
@@ -145,69 +166,79 @@ namespace ConsoleAppProject.App02
             return unit;
         }
 
+        /// <summary>
         /// Calculates the BMI from Imperial units that was input
+        /// </summary>
         private void CalculateImperial()
         {
-
-            index = (double)pounds * 703 / (inches * inches);
+            index = (double)pounds * SevenZeroThree / (inches * inches);
         }
 
-        //calculates the BMI from Metric units that was input
+
+        /// <summary>
+        /// calculates the BMI from Metric units that was input
+        /// </summary>
         private void CalculateMetric()
         {
-            metres = centimetres / 100;
+            metres = centimetres / OneHundred;
             index = (kilograms / (metres* metres));
         }
 
+        /// <summary>
         /// outputs the converted distance
+        /// </summary>
         private void OutputBmi()
         {
             Console.WriteLine($"Your BMI is {index:0.00}");
         }
 
-        //calculates the WHO to show the body type of the user e.g overweight healthy
+        /// <summary>
+        /// calculates the WHO to show the body type of the user e.g overweight healthy
+        /// </summary>
         private void CalculateWho()
         {
-            if (index < 18.5)
+            if (index <= Underweight)
             {
                 who = "underweight";
             }
-            else if (index >= 18.5 && index <= 24.9)
+            else if (index > Underweight && index <= Healthy)
             {
                 who = "healthy";
             }
-            else if (index >= 25.0 && index <= 29.9)
+            else if (index > Healthy && index <= Overweight)
             {
                 who = "overweight";
             }
-            else if (index >= 30.0 && index <= 34.9)
+            else if (index > Overweight && index <= Obese1)
             {
                 who = "obese level 1";
             }
-            else if (index >= 35.0 && index <= 39.9)
+            else if (index > Obese1 && index <= Obese2)
             {
                 who = "obese level 2";
             }
-            else if (index >= 40.0)
+            else if (index >= Obese3)
             {
                 who = "obese level 3";
             }
         }
 
-        //Outputs the Who of the user
+        /// <summary>
+        /// Outputs the Who of the user
+        /// </summary>
         private void OutputWho()
         {
             Console.WriteLine("With your BMI you are classed as Being " + who);
         }
 
-        //Outputs Health warnings to the user
+        /// <summary>
+        /// Outputs Health warnings to the user
+        /// </summary>
         private void OutputWarning()
         {
-
             Console.WriteLine(" If you are Black, Asian or other minority ethnic groups, you have a higher risk");
             Console.WriteLine("\n Adults 23.0 or more are at increased risk");
             Console.WriteLine("\n Adults 27.5 or more are at high risk");
-
         }
     }
 }
