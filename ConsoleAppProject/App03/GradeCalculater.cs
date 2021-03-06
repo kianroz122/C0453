@@ -66,6 +66,14 @@ namespace ConsoleAppProject.App03
         {
             if (mark >= 0 && mark < LowestGradeD)
                 return Grades.F;
+            else if (mark >= LowestGradeD && mark < LowestGradeC)
+                return Grades.D;
+            else if (mark >= LowestGradeC && mark < LowestGradeB)
+                return Grades.C;
+            else if (mark >= LowestGradeB && mark < LowestGradeA)
+                return Grades.B;
+            else if (mark >= LowestGradeA && mark < HighestMark)
+                return Grades.A;
             else
             return Grades.X;
         }
@@ -93,6 +101,36 @@ namespace ConsoleAppProject.App03
         /// 
         /// </summary>
         public void CalculateGradeProfile()
+        {
+            for(int i = 0; i < GradeProfile.Length; i++)
+            {
+                GradeProfile[i] = 0;
+            }
+
+            foreach(int mark in Marks)
+            {
+                Grades grade = ConvertToGrade(mark);
+                GradeProfile[(int)grade]++;
+            }
+            OutputGradeProfile();
+        }
+
+        private void OutputGradeProfile()
+        {
+            Grades grade = Grades.X;
+            Console.WriteLine();
+
+            foreach(int count in GradeProfile)
+            {
+                int percentage = count * 100 / Marks.Length;
+                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
+                grade++;
+            }
+
+            Console.WriteLine();
+        }
+
+        public void DisplayMenu()
         {
             throw new NotImplementedException();
         }

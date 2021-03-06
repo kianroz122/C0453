@@ -19,7 +19,7 @@ namespace ConsoleAppProject
         
         private static BMI calculator = new BMI();
 
-        private static StudentGrades calc = new StudentGrades();
+        private static StudentGrades grades = new StudentGrades();
 
         public static void Main(string[] args)
         {
@@ -27,7 +27,7 @@ namespace ConsoleAppProject
 
             ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020-2021!");
 
-            string[] choices = { "Distance Converter", "BMI Calculator" };
+            string[] choices = { "Distance Converter", "BMI Calculator","Student Grades" };
             int choiceNo = ConsoleHelper.SelectChoice(choices);
 
             if (choiceNo == 1)
@@ -37,6 +37,10 @@ namespace ConsoleAppProject
             else if (choiceNo == 2)
             {
                 calculator.CalculateBmi();
+            }
+            else if (choiceNo == 3)
+            {
+                grades.DisplayMenu();
             }
             else Console.WriteLine("Invalid Try Again");
         }
