@@ -55,7 +55,7 @@ namespace ConsoleAppProject.App02
         {
 
             ConsoleHelper.OutputHeading("BMI Calculator");
-            SelectUnit();
+            unit =SelectUnit("Please Select the Units you want to use");
             
             if (unit == "metric")
             {
@@ -116,53 +116,22 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// Executes the choice of imperial or metric that the user makes
+        /// process of selecting the units
         /// </summary>
-        private string ExecuteChoice(string choice)
-        {
-            if (choice.Equals("1"))
-            {
-                return IMPERIAL;
-            }
-
-            else if (choice.Equals("2"))
-            {
-                return METRIC;
-            }
-            Console.WriteLine("Invalid");
-            return null;
-        }
-
-        /// <summary>
-        /// displays the choices of the units the user can choose between
-        /// </summary>
-        private string DisplayChoices()
+        private string SelectUnit(string prompt)
         {
             string[] choices =
             {
-             IMPERIAL,
              METRIC,
-
+             IMPERIAL
             };
-            Console.WriteLine("Choose your Units\n");
-            Console.WriteLine(" 1. Imperial");
-            Console.WriteLine(" 2. Metric");
+
+            Console.WriteLine(prompt);
             Console.WriteLine();
 
-            string choice = Console.ReadLine();
-            return choice;
-        }
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
 
-        /// <summary>
-        /// process of selecting the units
-        /// </summary>
-        private string SelectUnit()
-        {
-            Console.WriteLine();
-            string choice = DisplayChoices();
-
-            unit = ExecuteChoice(choice);
-            Console.WriteLine($"\n You have chosen {unit}");
+            string unit = choices[choiceNo - 1];
             return unit;
         }
 
