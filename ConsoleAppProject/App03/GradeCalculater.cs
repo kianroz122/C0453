@@ -14,6 +14,14 @@ namespace ConsoleAppProject.App03
         public const int LowestGradeA = 70;
         public const int HighestMark = 100;
 
+        public const string INPUTMARK = "Input Mark For Student";
+        public const string SEEALL = "see all marks for students";
+        public const string SEEMIN = "See the minimum mark";
+        public const string SEEMAX = "See the maximum mark";
+        public const string MEANMARK = "see the mean mark";
+        public const string QUIT = "Quit";
+        public const string GRADEPROFILE = "See the grade profile";
+
 
         //properties
         public string[] Students;
@@ -24,6 +32,7 @@ namespace ConsoleAppProject.App03
         public double Mean;
         public int Minimum;
         public int Maximum;
+        public string options;
         
         /// <summary>
         /// 
@@ -46,9 +55,21 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// 
         /// </summary>
-        public void InputMarks()
+        public string InputMarks()
         {
-            throw new NotImplementedException();
+            int mark;
+            int index = 0;
+            foreach (string student in Students)
+            {
+
+                mark = (int)ConsoleHelper.InputNumber("Please enter a mark for  " + (student) + " > ", 0, 100);
+                Marks[index] = mark;
+                index++;
+            }
+
+            DisplayMenu();
+            string choice = Console.ReadLine();
+            return choice;
         }
 
         /// <summary>
@@ -130,9 +151,110 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
         }
 
-        public void DisplayMenu()
+        public string DisplayMenu()
+        {
+            ConsoleHelper.OutputHeading("Student Grade Calculater");
+            options = SelectUnit("Please select the Option you wish to use");
+
+            if (options.Equals(INPUTMARK))
+            {
+                InputMarks();
+            }
+
+            else if (options.Equals(SEEALL))
+            {
+                OutputAll();
+            }
+
+            else if (options.Equals(SEEMIN))
+            {
+                OutputMin();
+            }
+
+            else if (options.Equals(SEEMAX))
+            {
+                OutputMax();
+            }
+
+            else if (options.Equals(MEANMARK))
+            {
+                OutputMean();
+            }
+
+            else if (options.Equals(GRADEPROFILE))
+            {
+                OutputGradeProfile();
+            }
+
+            else if (options.Equals(QUIT))
+            {
+                Quit();
+            }
+
+            else
+
+                Console.WriteLine();
+            Console.WriteLine("invalid choice try again");
+            Console.WriteLine();
+            // Return the user to the display choices menu so they can type in a correct selection. does not work currently
+            return DisplayMenu();
+        }
+
+        public string StudentSelect()
         {
             throw new NotImplementedException();
+        }
+
+        private string ExcecuteChoices()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OutputMean()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OutputMax()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OutputMin()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OutputAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Quit()
+        {
+            Environment.Exit(0);
+        }
+
+        public string SelectUnit(string prompt)
+        {
+            string[] choices =
+            {
+             INPUTMARK,
+             SEEALL,
+             SEEMIN,
+             SEEMAX,
+             MEANMARK,
+             GRADEPROFILE,
+             QUIT
+            };
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
+
+            string unit = choices[choiceNo - 1];
+            return unit;
         }
     }
 }
