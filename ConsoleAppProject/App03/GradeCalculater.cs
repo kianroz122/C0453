@@ -205,11 +205,6 @@ namespace ConsoleAppProject.App03
             throw new NotImplementedException();
         }
 
-        private string ExcecuteChoices()
-        {
-            throw new NotImplementedException();
-        }
-
         private void OutputMean()
         {
             throw new NotImplementedException();
