@@ -22,6 +22,8 @@ namespace ConsoleAppProject.App03
         public const string QUIT = "Quit";
         public const string GRADEPROFILE = "See the grade profile";
 
+        public const int NoStudents = 10;
+
 
         //properties
         public string[] Students;
@@ -227,7 +229,11 @@ namespace ConsoleAppProject.App03
 
         private void OutputAll()
         {
-            CalculateStats();
+            ConsoleHelper.OutputHeading(" Listing of Student Marks >");
+            for (int index = 0; index < NoStudents; index++)
+            {
+                Console.WriteLine($" {Students[index]} {Marks[index]}");
+            }
         }
 
         public void Quit()
