@@ -37,7 +37,7 @@ namespace ConsoleAppProject.App03
         public string options;
         
         /// <summary>
-        /// 
+        /// constructer for the class
         /// </summary>
         public StudentGrades()
         { 
@@ -55,10 +55,11 @@ namespace ConsoleAppProject.App03
         }
         
         /// <summary>
-        /// 
+        /// Where the user inputs the marks for each
         /// </summary>
         public string InputMarks()
         {
+            ConsoleHelper.OutputHeading("Input Student Marks");
             int mark;
             int index = 0;
             foreach (string student in Students)
@@ -75,15 +76,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public void OutputMarks()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
+        /// Converts the marks to Grades
         /// </summary>
         public Grades ConvertToGrade(int mark)
         {
@@ -102,7 +95,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// Calculates all the stats
         /// </summary>
         public void CalculateStats()
         {
@@ -121,7 +114,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// Calcualtes the grade profile fo all the students
         /// </summary>
         public void CalculateGradeProfile()
         {
@@ -138,8 +131,12 @@ namespace ConsoleAppProject.App03
             OutputGradeProfile();
         }
 
+        /// <summary>
+        /// Outputs the grade profile
+        /// </summary>
         private void OutputGradeProfile()
         {
+            ConsoleHelper.OutputHeading("Grade Profile");
             Grades grade = Grades.X;
             Console.WriteLine();
 
@@ -153,6 +150,9 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// displays the menue which the user choses what they wish to do
+        /// </summary>
         public string DisplayMenu()
         {
             ConsoleHelper.OutputHeading("Student Grade Calculater");
@@ -207,28 +207,43 @@ namespace ConsoleAppProject.App03
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// outputs the mean mark
+        /// </summary>
         private void OutputMean()
         {
+            ConsoleHelper.OutputHeading("Mean Mark");
             CalculateStats();
             Console.WriteLine($"The average mark was {Mean}");
            
         }
 
+        /// <summary>
+        /// outputs the highest mark
+        /// </summary>
         private void OutputMax()
         {
+            ConsoleHelper.OutputHeading("Highest Mark");
             CalculateStats();
             Console.WriteLine($"The Highest mark was {Maximum}");
         }
 
-
+        /// <summary>
+        /// outputs the lowest mark
+        /// </summary>
         private void OutputMin()
         {
+            ConsoleHelper.OutputHeading("Lowest Mark");
             CalculateStats();
             Console.WriteLine($"The Lowest mark was {Minimum}");
         }
 
+        /// <summary>
+        /// outputs all the marks for all students
+        /// </summary>
         private void OutputAll()
         {
+            ConsoleHelper.OutputHeading("All Marks");
             ConsoleHelper.OutputHeading(" Listing of Student Marks >");
             for (int index = 0; index < NoStudents; index++)
             {
@@ -236,11 +251,17 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        /// closes the program
+        /// </summary>
         public void Quit()
         {
             Environment.Exit(0);
         }
 
+        /// <summary>
+        /// listing the options for the user to choose from
+        /// </summary>
         public string SelectUnit(string prompt)
         {
             string[] choices =
