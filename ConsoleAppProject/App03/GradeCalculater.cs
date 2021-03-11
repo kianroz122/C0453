@@ -193,10 +193,10 @@ namespace ConsoleAppProject.App03
 
             else
 
-                Console.WriteLine();
-            Console.WriteLine("invalid choice try again");
+
             Console.WriteLine();
-            // Return the user to the display choices menu so they can type in a correct selection. does not work currently
+            Console.WriteLine();
+           
             return DisplayMenu();
         }
 
@@ -207,22 +207,27 @@ namespace ConsoleAppProject.App03
 
         private void OutputMean()
         {
-            throw new NotImplementedException();
+            CalculateStats();
+            Console.WriteLine($"The average mark was {Mean}");
+           
         }
 
         private void OutputMax()
         {
-            throw new NotImplementedException();
+            CalculateStats();
+            Console.WriteLine($"The Highest mark was {Maximum}");
         }
+
 
         private void OutputMin()
         {
-            throw new NotImplementedException();
+            CalculateStats();
+            Console.WriteLine($"The Lowest mark was {Minimum}");
         }
 
         private void OutputAll()
         {
-            throw new NotImplementedException();
+            CalculateStats();
         }
 
         public void Quit()
