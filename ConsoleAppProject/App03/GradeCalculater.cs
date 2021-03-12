@@ -43,11 +43,9 @@ namespace ConsoleAppProject.App03
         { 
             Students = new string[]
             {
-           
                 "aaliyah","jimmy","tom",
                 "ricardo","jeff","trevor",
                 "juan","hank","peter","rashid"
-
             };
 
             GradeProfile = new int[(int)Grades.A + 1];
@@ -69,7 +67,6 @@ namespace ConsoleAppProject.App03
                 Marks[index] = mark;
                 index++;
             }
-
             DisplayMenu();
             string choice = Console.ReadLine();
             return choice;
@@ -101,7 +98,6 @@ namespace ConsoleAppProject.App03
         {
             Minimum = Marks[0];
             Maximum = Marks[0];
-
             double total = 0;
             
             foreach(int mark in Marks)
@@ -122,7 +118,6 @@ namespace ConsoleAppProject.App03
             {
                 GradeProfile[i] = 0;
             }
-
             foreach(int mark in Marks)
             {
                 Grades grade = ConvertToGrade(mark);
@@ -143,8 +138,8 @@ namespace ConsoleAppProject.App03
             foreach(int count in GradeProfile)
             {
                 int percentage = count * 100 / Marks.Length;
-                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
                 grade++;
+                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
             }
 
             Console.WriteLine();
@@ -162,17 +157,14 @@ namespace ConsoleAppProject.App03
             {
                 InputMarks();
             }
-
             else if (options.Equals(SEEALL))
             {
                 OutputAll();
             }
-
             else if (options.Equals(SEEMIN))
             {
                 OutputMin();
             }
-
             else if (options.Equals(SEEMAX))
             {
                 OutputMax();
@@ -185,7 +177,7 @@ namespace ConsoleAppProject.App03
 
             else if (options.Equals(GRADEPROFILE))
             {
-                OutputGradeProfile();
+                CalculateGradeProfile();
             }
 
             else if (options.Equals(QUIT))
@@ -194,11 +186,8 @@ namespace ConsoleAppProject.App03
             }
 
             else
-
-
             Console.WriteLine();
             Console.WriteLine();
-           
             return DisplayMenu();
         }
 
@@ -215,7 +204,6 @@ namespace ConsoleAppProject.App03
             ConsoleHelper.OutputHeading("Mean Mark");
             CalculateStats();
             Console.WriteLine($"The average mark was {Mean}");
-           
         }
 
         /// <summary>
@@ -277,9 +265,7 @@ namespace ConsoleAppProject.App03
 
             Console.WriteLine();
             Console.WriteLine();
-
             int choiceNo = ConsoleHelper.SelectChoice(choices);
-
             string unit = choices[choiceNo - 1];
             return unit;
         }

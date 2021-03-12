@@ -86,11 +86,12 @@ namespace TestProject
             converter.CalculateGradeProfile();
 
             bool expectedProfile;
-            expectedProfile = ((converter.GradeProfile[0] == 3) &&
-                               (converter.GradeProfile[1] == 1) &&
+            expectedProfile = ((converter.GradeProfile[0] == 1) &&
+                               (converter.GradeProfile[1] == 3) &&
                                (converter.GradeProfile[2] == 1) &&
                                (converter.GradeProfile[3] == 1) &&
-                               (converter.GradeProfile[4] == 4));
+                               (converter.GradeProfile[4] == 1) &&
+                               (converter.GradeProfile[5] == 3));
             
             Assert.IsTrue(expectedProfile);
         }
