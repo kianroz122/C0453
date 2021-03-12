@@ -11,6 +11,7 @@ namespace ConsoleAppProject
         /// </summary>
         public static void OutputHeading(string title)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n------------------------");
             Console.WriteLine($"----{title}---");
             Console.WriteLine("-----BY Kian Rozblat----");

@@ -23,7 +23,7 @@ namespace ConsoleAppProject
 
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Magenta;
 
             ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020-2021!");
 

@@ -25,12 +25,13 @@ namespace ConsoleAppProject.App03
         public const int NoStudents = 10;
 
 
-        //properties
+        //Arrays
         public string[] Students;
         public int[] Marks;
         public int[] GradeProfile;
         public int[] StatsMarks;
 
+        //Properties
         public double Mean;
         public int Minimum;
         public int Maximum;
