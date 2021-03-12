@@ -86,7 +86,7 @@ namespace ConsoleAppProject.App03
                 return Grades.C;
             else if (mark >= LowestGradeB && mark < LowestGradeA)
                 return Grades.B;
-            else if (mark >= LowestGradeA && mark < HighestMark)
+            else if (mark >= LowestGradeA && mark <= HighestMark)
                 return Grades.A;
             else
             return Grades.X;
