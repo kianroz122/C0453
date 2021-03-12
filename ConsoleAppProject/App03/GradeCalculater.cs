@@ -52,7 +52,15 @@ namespace ConsoleAppProject.App03
             GradeProfile = new int[(int)Grades.A + 1];
             Marks = new int[Students.Length];
         }
-        
+
+        public Grades Grades
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// Where the user inputs the marks for each
         /// </summary>

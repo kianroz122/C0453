@@ -21,6 +21,14 @@ namespace ConsoleAppProject
 
         private static StudentGrades grades = new StudentGrades();
 
+        public static StudentGrades StudentGrades
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
