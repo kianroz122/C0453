@@ -7,29 +7,22 @@ namespace ConsoleAppProject.App04
     ///<summary>
     /// The NewsFeed class stores news posts for the news feed in a social network 
     /// application.
-    /// 
-    /// Display of the posts is currently simulated by printing the details to the
-    /// terminal. (Later, this should display in a browser.)
-    /// 
-    /// This version does not save the data to disk, and it does not provide any
-    /// search or ordering functions.
     ///</summary>
     ///<author>
-    ///  Michael Kölling and David J. Barnes
+    ///  Kian Rozblat
     ///  version 0.1
     ///</author> 
     public class NewsFeed
     {
         public const string AUTHOR = "Kian";
         private readonly List<Post> posts;
-
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
         {
             posts = new List<Post>();
-            MessagePost post = new MessagePost(AUTHOR ,"Hello there");
+            MessagePost post = new MessagePost(AUTHOR, "Hello there");
             AddMessagePost(post);
 
             PhotoPost photoPost = new PhotoPost(AUTHOR, "Photo1.jpg", "A Dog");
@@ -39,8 +32,6 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a text post to the news feed.
-        /// 
-        /// @param text  The text post to be added.
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
@@ -49,9 +40,6 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a photo post to the news feed.
-        /// 
-        /// @param photo  The photo post to be added.
-        ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
             posts.Add(photo);
@@ -70,6 +58,19 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine();
             }
         }
-    }
 
+        private void DisplayFromUser()
+        {
+            Console.WriteLine(" Which user do you want to see mentions from > ");
+            string name = Console.ReadLine();
+            if (name.Contains("much") == true)
+            {
+                Console.WriteLine("User found!");
+            }
+            else
+            {
+                Console.WriteLine("Word not found!");
+            }
+        }
+    }
 }

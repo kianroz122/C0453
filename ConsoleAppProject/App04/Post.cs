@@ -15,7 +15,7 @@ namespace ConsoleAppProject.App04
         // username of the post's author
         public String Username { get; }
 
-        public Post (string author)
+        public Post(string author)
         {
             this.Username = author;
             Timestamp = DateTime.Now;
@@ -115,5 +115,22 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        public string InputMessage()
+        {
+            //posts.Add(message);
+            throw new Exception();
+        }
+
+        public string InputPhoto()
+        {
+            //posts.Add(photo);
+            throw new Exception();
+        }
+
+        public string InputComment()
+        {
+            //posts.Add(comment);
+            throw new Exception();
+        }
     }
 }
