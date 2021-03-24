@@ -72,5 +72,35 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine("Word not found!");
             }
         }
+
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \n Post with ID = {id} does not exist!!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \n The following Post {id} has been removed!\n");
+
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostID == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
     }
 }

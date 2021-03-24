@@ -4,9 +4,14 @@ using System.Text;
 
 namespace ConsoleAppProject.App04
 {
+    [Serializable]
     public class Post
     {
-        private int likes;
+        public int likes;
+
+        public int PostID;
+
+        private static int instances = 0;
 
         private readonly List<String> comments;
 
@@ -17,6 +22,9 @@ namespace ConsoleAppProject.App04
 
         public Post(string author)
         {
+            instances++;
+            PostID = instances;
+
             this.Username = author;
             Timestamp = DateTime.Now;
             likes = 0;
@@ -92,6 +100,7 @@ namespace ConsoleAppProject.App04
         public virtual void Display()
         {
             Console.WriteLine();
+            Console.WriteLine($"    Post Id: {PostID}");
             Console.WriteLine($"    Author: {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
@@ -115,22 +124,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
-        public string InputMessage()
+        public static int GetNumberOfPosts()
         {
-            //posts.Add(message);
-            throw new Exception();
+            return instances;
         }
 
-        public string InputPhoto()
-        {
-            //posts.Add(photo);
-            throw new Exception();
-        }
-
-        public string InputComment()
-        {
-            //posts.Add(comment);
-            throw new Exception();
-        }
     }
 }
