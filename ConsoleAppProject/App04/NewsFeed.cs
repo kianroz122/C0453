@@ -59,20 +59,6 @@ namespace ConsoleAppProject.App04
             }
         }
 
-        private void DisplayFromUser()
-        {
-            Console.WriteLine(" Which user do you want to see mentions from > ");
-            string name = Console.ReadLine();
-            if (name.Contains("much") == true)
-            {
-                Console.WriteLine("User found!");
-            }
-            else
-            {
-                Console.WriteLine("Word not found!");
-            }
-        }
-
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
@@ -101,6 +87,31 @@ namespace ConsoleAppProject.App04
             }
 
             return null;
+        }
+
+        public void AddComment(string comment)
+        {
+
+        }
+
+        public void DisplayByUser(string user)
+        {
+            int count = 0;
+            // display all text posts
+            foreach (Post post in posts)
+            {
+                if(post.Username == user)
+                {
+                    count++;
+                    post.Display();
+                    Console.WriteLine();
+                }
+                
+            }
+            if(count == 0)
+            {
+                Console.WriteLine("No posts by this user");
+            }
         }
     }
 }

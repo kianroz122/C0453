@@ -15,7 +15,7 @@ namespace ConsoleAppProject.App04
             string[] choices = new string[]
             {
                 "Post Message","Post Image",""+
-                "Display All Posts", "Display User post","Save all Posts", "Quit"
+                "Display All Posts", "Display User post", "Quit"
             };
 
             bool wantToQuit = false;
@@ -28,16 +28,17 @@ namespace ConsoleAppProject.App04
                     case 1: PostMessage(); break;
                     case 2: PostImage(); break;
                     case 3: DisplayAll(); break;
-                    case 4: DisplayFromUser(); break;
-                    case 5: SaveAllPosts(); break;
-                    case 6: wantToQuit = true; break;
+                    case 4: DisplayByUser(); break;
+                    case 5: wantToQuit = true; break;
                 }
             } while (!wantToQuit);
         }
 
-        private void SaveAllPosts()
+        private void DisplayByUser()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter Name of user");
+            string user = Console.ReadLine();
+            news.DisplayByUser(user);
         }
 
         private void DisplayAll()
@@ -78,19 +79,7 @@ namespace ConsoleAppProject.App04
             news.AddMessagePost(post);
         }
 
-        private void DisplayFromUser()
-        {
-            Console.WriteLine(" Which user do you want to see posts from? > ");
-            string name = Console.ReadLine();
-            if (name.Contains("much") == true)
-            {
-                Console.WriteLine("User found!");
-            }
-            else
-            {
-                Console.WriteLine("Word not found!");
-            }
-        }
+
 
         public void DisplayAllMenu()
         {
@@ -119,7 +108,7 @@ namespace ConsoleAppProject.App04
         }
         private void Remove()
         {
-            ConsoleHelper.OutputHeading($"Removing a Post");
+            ConsoleHelper.OutputHeading("Removing a Post");
 
             int id = (int)ConsoleHelper.InputNumber(" Please enter the post id > ", 1, Post.GetNumberOfPosts());
             news.RemovePost(id);
@@ -127,17 +116,33 @@ namespace ConsoleAppProject.App04
 
         private void Comment()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Comment on a Post");
+            Post post = FindPost();
+            post.Display();
+            Console.WriteLine("Please Enter your Comment");
+            string comment = Console.ReadLine();
+            post.AddComment(comment);
         }
 
         private void Unlike()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Unlike a Post");
+            Post post = FindPost();
+            post.Unlike();
         }
 
         private void Like()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Like a Post");
+            Post post = FindPost();
+            post.Like();
+        }
+
+        public Post FindPost()
+        {
+            int postID;
+            postID = (int)ConsoleHelper.InputNumber("Please Enter Post ID > ");
+            return news.FindPost(postID);
         }
     }
 }

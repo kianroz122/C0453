@@ -128,6 +128,5 @@ namespace ConsoleAppProject.App04
         {
             return instances;
         }
-
     }
 }
