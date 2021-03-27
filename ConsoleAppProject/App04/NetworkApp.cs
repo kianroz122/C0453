@@ -8,6 +8,9 @@ namespace ConsoleAppProject.App04
     {
         private NewsFeed news = new NewsFeed();
 
+        /// <summary>
+        /// This is the primary menu where the user chooses whether to add a post or display all posts
+        /// </summary>
         public void DisplayMenu()
         {
             ConsoleHelper.OutputHeading("   Kian's News Feed");
@@ -34,6 +37,9 @@ namespace ConsoleAppProject.App04
             } while (!wantToQuit);
         }
 
+        /// <summary>
+        /// Displays posts only by a specific user 
+        /// </summary>
         private void DisplayByUser()
         {
             Console.WriteLine("Enter Name of user");
@@ -41,12 +47,20 @@ namespace ConsoleAppProject.App04
             news.DisplayByUser(user);
         }
 
+        /// <summary>
+        /// Displays all the posts and also uses the display menu 
+        /// function to give the user more choices
+        /// </summary>
         private void DisplayAll()
         {
             news.Display();
             DisplayAllMenu();
         }
 
+        /// <summary>
+        /// Where the User will post an image by adding their name 
+        /// then the url of the image and then a caption
+        /// </summary>
         private void PostImage()
         {
             Console.WriteLine("Post an Image");
@@ -65,6 +79,9 @@ namespace ConsoleAppProject.App04
         }
 
      
+        /// <summary>
+        /// This is where the user will post a basic text message post
+        /// </summary>
         private void PostMessage()
         {
             Console.WriteLine("Post a Message");
@@ -80,7 +97,10 @@ namespace ConsoleAppProject.App04
         }
 
 
-
+        /// <summary>
+        /// This is the menu where the user interacts with the posts for example like,
+        /// unlike, comment, remove posts and also allows the usr to go back to the main page
+        /// </summary>
         public void DisplayAllMenu()
         {
             ConsoleHelper.OutputHeading("   Display All Posts By Kian Rozblat");
@@ -106,6 +126,10 @@ namespace ConsoleAppProject.App04
                 }
             } while (!wantToQuit);
         }
+
+        /// <summary>
+        /// Removes a specific post that is chosen by the post id
+        /// </summary>
         private void Remove()
         {
             ConsoleHelper.OutputHeading("Removing a Post");
@@ -114,6 +138,9 @@ namespace ConsoleAppProject.App04
             news.RemovePost(id);
         }
 
+        /// <summary>
+        /// where the user adds a Comment onto a post
+        /// </summary>
         private void Comment()
         {
             Console.WriteLine("Comment on a Post");
@@ -124,6 +151,9 @@ namespace ConsoleAppProject.App04
             post.AddComment(comment);
         }
 
+        /// <summary>
+        /// Where the user can unlike a previously liked post
+        /// </summary>
         private void Unlike()
         {
             Console.WriteLine("Unlike a Post");
@@ -131,6 +161,9 @@ namespace ConsoleAppProject.App04
             post.Unlike();
         }
 
+        /// <summary>
+        /// Where the user can like a post
+        /// </summary>
         private void Like()
         {
             Console.WriteLine("Like a Post");
@@ -138,6 +171,9 @@ namespace ConsoleAppProject.App04
             post.Like();
         }
 
+        /// <summary>
+        /// Finds the specific post from the id entered from the user
+        /// </summary>
         public Post FindPost()
         {
             int postID;

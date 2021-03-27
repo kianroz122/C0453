@@ -59,6 +59,9 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// Removes the post from the id that was chosen by the user
+        /// </summary>
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
@@ -76,6 +79,9 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// Finds post from the inputted id
+        /// </summary>
         public Post FindPost(int id)
         {
             foreach (Post post in posts)
@@ -89,11 +95,9 @@ namespace ConsoleAppProject.App04
             return null;
         }
 
-        public void AddComment(string comment)
-        {
-
-        }
-
+        /// <summary>
+        /// Displays all the text by specific user
+        /// </summary>
         public void DisplayByUser(string user)
         {
             int count = 0;

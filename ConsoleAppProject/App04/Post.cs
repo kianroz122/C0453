@@ -8,23 +8,17 @@ namespace ConsoleAppProject.App04
     public class Post
     {
         public int likes;
-
         public int PostID;
-
         private static int instances = 0;
-
         private readonly List<String> comments;
 
         public DateTime Timestamp { get; }
-
-        // username of the post's author
         public String Username { get; }
 
         public Post(string author)
         {
             instances++;
             PostID = instances;
-
             this.Username = author;
             Timestamp = DateTime.Now;
             likes = 0;
@@ -32,7 +26,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// Record one more 'Like' indication from a user.
+        /// When the user has selected the post and chose the like option it will count the extra likes
         /// </summary>
         public void Like()
         {
@@ -40,7 +34,7 @@ namespace ConsoleAppProject.App04
         }
 
         ///<summary>
-        /// Record that a user has withdrawn his/her 'Like' vote.
+        ///Shows when a user has undone their like 
         ///</summary>
         public void Unlike()
         {
@@ -52,10 +46,7 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a comment to this post.
-        /// </summary>
-        /// <param name="text">
-        /// The new comment to add.
-        /// </param>        
+        /// </summary>       
         public void AddComment(String text)
         {
             comments.Add(text);
@@ -66,12 +57,6 @@ namespace ConsoleAppProject.App04
         /// relative to current time, such as "30 seconds ago" or "7 minutes ago".
         /// Currently, only seconds and minutes are used for the string.
         /// </summary>
-        /// <param name="time">
-        ///  The time value to convert (in system milliseconds)
-        /// </param> 
-        /// <returns>
-        /// A relative time string for the given time
-        /// </returns>      
         private String FormatElapsedTime(DateTime time)
         {
             DateTime current = DateTime.Now;
@@ -90,12 +75,8 @@ namespace ConsoleAppProject.App04
             }
         }
 
-
         ///<summary>
         /// Display the details of this post.
-        /// 
-        /// (Currently: Print to the text terminal. This is simulating display 
-        /// in a web browser for now.)
         ///</summary>
         public virtual void Display()
         {
@@ -120,10 +101,14 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+                Console.WriteLine($"    {comments.Count}  comment(s). ");
             }
         }
 
+        /// <summary>
+        /// Returns the amount of posts
+        /// </summary>
+        /// <returns></returns>
         public static int GetNumberOfPosts()
         {
             return instances;
