@@ -147,7 +147,6 @@ namespace ConsoleAppProject.App04
 
             int id = (int)ConsoleHelper.InputNumber(" Please enter the post id > ", 1, Post.GetNumberOfPosts());
             news.RemovePost(id);
-            Console.WriteLine("Post Removed");
             Console.WriteLine();
         }
 
