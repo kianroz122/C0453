@@ -8,6 +8,14 @@ namespace ConsoleAppProject.App04
     {
         private NewsFeed news = new NewsFeed();
 
+        public NewsFeed NewsFeed
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// This is the primary menu where the user chooses whether to add a post or display all posts
         /// </summary>
@@ -45,6 +53,7 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("Enter Name of user");
             string user = Console.ReadLine();
             news.DisplayByUser(user);
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -76,6 +85,7 @@ namespace ConsoleAppProject.App04
 
             PhotoPost post = new PhotoPost(author,filename,caption);
             news.AddPhotoPost(post);
+            Console.WriteLine();
         }
 
      
@@ -94,6 +104,7 @@ namespace ConsoleAppProject.App04
 
             MessagePost post = new MessagePost(author, text);
             news.AddMessagePost(post);
+            Console.WriteLine();
         }
 
 
@@ -136,6 +147,8 @@ namespace ConsoleAppProject.App04
 
             int id = (int)ConsoleHelper.InputNumber(" Please enter the post id > ", 1, Post.GetNumberOfPosts());
             news.RemovePost(id);
+            Console.WriteLine("Post Removed");
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -149,6 +162,8 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("Please Enter your Comment");
             string comment = Console.ReadLine();
             post.AddComment(comment);
+            Console.WriteLine("Comment Added");
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -159,6 +174,8 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("Unlike a Post");
             Post post = FindPost();
             post.Unlike();
+            Console.WriteLine("Post Unliked");
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -169,6 +186,8 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("Like a Post");
             Post post = FindPost();
             post.Like();
+            Console.WriteLine("Post Liked");
+            Console.WriteLine();
         }
 
         /// <summary>
